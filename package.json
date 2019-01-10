@@ -8,7 +8,7 @@
     "dev": "node server/server.dev.js",
     "build-client": "webpack --config build/webpack.client.js",
     "build-server": "webpack --config build/webpack.server.js",
-    "server": "node server/server.js"
+    "server": "node server/server.prod.js"
   },
   "dependencies": {
     "vue": "^2.5.21",
@@ -34,6 +34,9 @@
     "koa-static": "^5.0.0",
     "koa-webpack": "^5.2.1",
     "memory-fs": "^0.4.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.5.0",
+    "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "ts-loader": "^5.3.3",
     "typescript": "^3.2.2",

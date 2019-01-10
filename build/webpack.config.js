@@ -24,14 +24,16 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
-          'stylus-loader'
+          'stylus-loader',
+          'postcss-loader'
         ]
       },
       {
         test: /\.css$/,
         use: [
           'vue-style-loader',
-          'css-loader'
+          'css-loader',
+          'postcss-loader'
         ]
       }
     ]

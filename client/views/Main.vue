@@ -1,5 +1,5 @@
 <template>
-    <div>Hello World4</div>
+    <div class="content">Hello World</div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
@@ -10,3 +10,7 @@ export default class Main extends Vue {
 
 }
 </script>
+<style lang="stylus" scoped>
+    .content
+        font-size: 24px
+</style>
