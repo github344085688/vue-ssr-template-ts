@@ -3,6 +3,7 @@ const config = require('./webpack.config')
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 const VueServerPlugin = require('vue-server-renderer/server-plugin')
+const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = merge(config, {
   entry: ['./client/entry-server.ts'],
@@ -13,7 +14,7 @@ module.exports = merge(config, {
     publicPath: '/'
   },
   target: 'node',
-  mode: 'production',
+  mode: isProd ? 'production' : 'development',
   externals: nodeExternals({
     whitelist: /\.css$/
   }),

@@ -1,8 +1,8 @@
 const merge = require('webpack-merge')
 const config = require('./webpack.config')
 const path = require('path')
-const webpack = require('webpack')
 const VueClientPlugin = require('vue-server-renderer/client-plugin')
+const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = merge(config, {
   entry: ['./client/entry-client.ts'],
@@ -11,7 +11,8 @@ module.exports = merge(config, {
     filename: 'js/[name].js',
     publicPath: './'
   },
-  mode: 'production',
+  devtool: '#source-map',
+  mode: isProd ? 'production' : 'development',
   plugins: [
     new VueClientPlugin()
   ]
