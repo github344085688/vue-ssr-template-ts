@@ -14,9 +14,3 @@ declare module 'vue/types/options' {
         asyncData?: AsyncData
     }
   }
-
-  declare module 'vue/types/vue' {
-    interface Vue {
-        asyncData?: AsyncData
-    }
-  }

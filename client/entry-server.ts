@@ -1,10 +1,8 @@
 import { createApp } from './createApp'
-import Vue from 'vue'
 
-export default (context: any) => {
+export default (context: any, y: any) => {
   return new Promise((resolve, reject) => {
     const { app, router, store } = createApp()
-
     router.push(context.url)
 
     router.onReady(() => {
@@ -14,9 +12,8 @@ export default (context: any) => {
       }
 
       Promise.all(matchedComponents.map(component => {
-        component = <Vue>component
-        if (component.asyncData) {
-          return component.asyncData({
+        if (typeof (<any>component).options.asyncData === 'function') {
+          return (<any>component).options.asyncData({
             store,
             route: router.currentRoute
           })
