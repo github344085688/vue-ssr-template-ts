@@ -7,7 +7,20 @@ export const createRouter = () =>
   new Router({
     mode: 'history',
     routes: [{
-      path: '/*',
+      path: '/',
+      redirect: { name: 'Login' }
+    }, {
+      path: '/Login',
+      name: 'Login',
       component: () => import('./views/Main.vue')
-    }]
+    }, {
+      path: '/foo',
+      name: 'foo',
+      component: () => import('./views/foo.vue')
+    }, {
+      path: '/cs',
+      name: 'cs',
+      component: () => import('./views/cs.vue')
+    }
+    ]
   })

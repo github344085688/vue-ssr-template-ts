@@ -2,6 +2,7 @@ const Koa = require('koa')
 const fs = require('fs')
 const path = require('path')
 const koaStatic = require('koa-static')
+const config = require('../config')
 const { createBundleRenderer } = require('vue-server-renderer')
 const clientManifest = require('../dist/vue-ssr-client-manifest.json')
 const serverBundle = require('../dist/vue-ssr-server-bundle.json')
@@ -24,7 +25,7 @@ server.use(async (context, next) => {
   context.body = html
 })
 
-const port = process.env.PORT || 80
+const port = process.env.PORT || config.server.serverRunPort ? config.server.serverRunPort : 80
 server.listen(port, () => {
   console.log(`Server start at port ${port}`)
 })

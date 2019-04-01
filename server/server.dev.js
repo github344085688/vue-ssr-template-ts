@@ -5,6 +5,7 @@ const koaWebpack = require('koa-webpack')
 const path = require('path')
 const webpack = require('webpack')
 const MemoryFs = require('memory-fs')
+const config = require('../config')
 const { createBundleRenderer } = require('vue-server-renderer')
 const clientConfig = require('../build/webpack.client')
 const serverConfig = require('../build/webpack.server')
@@ -48,7 +49,7 @@ koaWebpack({ compiler, devMiddleware: { serverSideRender: true, publicPath: '/' 
     })
     context.body = html
   })
-  const port = process.env.PORT || 3000
+  const port = process.env.PORT || config.client.serverRunPort ? config.client.serverRunPort : 3000
   server.listen(port, () => {
     console.log(`Server start at port ${port}`)
   })
